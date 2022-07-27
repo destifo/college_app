@@ -1,4 +1,7 @@
+import 'package:college_app/widgets/college_card.dart';
+import 'package:college_app/widgets/rectangular_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'option_card.dart';
 import 'search_bar2.dart';
@@ -20,38 +23,40 @@ class CollegesBody extends StatelessWidget {
           ),
           Container(
             height: (mediaQuery.size.height - mediaQuery.padding.top) * 0.65,
-            child: ListView(
+            child: Column(
               children: [
-                OptionCard(
-                  title: 'Top Colleges',
-                  subBody: '126 Colleges',
-                  body:
-                      'Search through thousands of accredited colleges and universities online to find the right one for you.  Apply in 3 min, and connect with your future.',
-                  ctx: context,
-                  navKey: navKey,
-                  image: const AssetImage('assets/images/topcollege.webp'),
+                Container(
+                    margin: const EdgeInsets.symmetric(vertical: 15),
+                    width: mediaQuery.size.width * 0.9,
+                    height: (mediaQuery.size.height - mediaQuery.padding.top) *
+                        0.05,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: const [
+                        RectangularCard('MVSH Engineering college '),
+                        RectangularCard('MVSH Engineering college '),
+                        RectangularCard('MVSH Engineering college '),
+                      ],
+                    )),
+                Container(
+                  height:
+                      (mediaQuery.size.height - mediaQuery.padding.top) * 0.55,
+                  child: ListView(
+                    children: const [
+                      CollegeCard(
+                        'GHJK Engineering college',
+                        AssetImage('assets/images/college1.jpg'),
+                      ),
+                      CollegeCard(
+                        'Bachelor of Technology',
+                        AssetImage('assets/images/college2.jpg'),
+                      ),
+                    ],
+                  ),
                 ),
-                OptionCard(
-                  title: 'Top Schools',
-                  subBody: '106 Schools',
-                  body:
-                      'Searching for the best school for you just got easier! With our Advanced School Search, you can easily filter out the schools that are fit for you.',
-                  ctx: context,
-                  navKey: navKey,
-                  image: const AssetImage('assets/images/schools.jpg'),
-                ),
-                OptionCard(
-                  title: 'Exams',
-                  subBody: '16 Exams',
-                  navKey: navKey,
-                  body:
-                      'Find an end to end information about the exams that are happening in India',
-                  ctx: context,
-                  image: const AssetImage('assets/images/exams.jpg'),
-                ),
-                const SizedBox(
-                  height: 20,
-                )
+                // const SizedBox(
+                //   height: 20,
+                // )
               ],
             ),
           )

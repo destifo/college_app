@@ -13,8 +13,8 @@ class DegreeCard extends StatelessWidget {
       {Key? key})
       : super(key: key);
 
-  void _navigateToNextScreen(BuildContext context) async {
-    await navKey.currentState!.push(
+  void _navigateToNextScreen(BuildContext context) {
+    navKey.currentState!.push(
       MaterialPageRoute(
         builder: (context) => CollegesBody(navKey),
       ),
