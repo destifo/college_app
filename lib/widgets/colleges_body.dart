@@ -14,53 +14,61 @@ class CollegesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
 
-    return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          Container(
-            height: (mediaQuery.size.height - mediaQuery.padding.top) * 0.20,
-            child: SearchBar2(),
-          ),
-          Container(
-            height: (mediaQuery.size.height - mediaQuery.padding.top) * 0.65,
-            child: Column(
-              children: [
-                Container(
-                    margin: const EdgeInsets.symmetric(vertical: 15),
-                    width: mediaQuery.size.width * 0.9,
-                    height: (mediaQuery.size.height - mediaQuery.padding.top) *
-                        0.05,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: const [
-                        RectangularCard('MVSH Engineering college '),
-                        RectangularCard('MVSH Engineering college '),
-                        RectangularCard('MVSH Engineering college '),
-                      ],
-                    )),
-                Container(
-                  height:
-                      (mediaQuery.size.height - mediaQuery.padding.top) * 0.55,
-                  child: ListView(
-                    children: const [
-                      CollegeCard(
-                        'GHJK Engineering college',
-                        AssetImage('assets/images/college1.jpg'),
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height:
+                    (mediaQuery.size.height - mediaQuery.padding.top) * 0.20,
+                child: SearchBar2(),
+              ),
+              Container(
+                height:
+                    (mediaQuery.size.height - mediaQuery.padding.top) * 0.65,
+                child: Column(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.symmetric(vertical: 15),
+                        width: mediaQuery.size.width * 0.9,
+                        height:
+                            (mediaQuery.size.height - mediaQuery.padding.top) *
+                                0.05,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: const [
+                            RectangularCard('MVSH Engineering college '),
+                            RectangularCard('MVSH Engineering college '),
+                            RectangularCard('MVSH Engineering college '),
+                          ],
+                        )),
+                    Container(
+                      height:
+                          (mediaQuery.size.height - mediaQuery.padding.top) *
+                              0.55,
+                      child: ListView(
+                        children: const [
+                          CollegeCard(
+                            'GHJK Engineering college',
+                            AssetImage('assets/images/college1.jpg'),
+                          ),
+                          CollegeCard(
+                            'Bachelor of Technology',
+                            AssetImage('assets/images/college2.jpg'),
+                          ),
+                        ],
                       ),
-                      CollegeCard(
-                        'Bachelor of Technology',
-                        AssetImage('assets/images/college2.jpg'),
-                      ),
-                    ],
-                  ),
+                    ),
+                    // const SizedBox(
+                    //   height: 20,
+                    // )
+                  ],
                 ),
-                // const SizedBox(
-                //   height: 20,
-                // )
-              ],
-            ),
-          )
-        ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

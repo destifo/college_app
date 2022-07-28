@@ -1,3 +1,4 @@
+import 'package:college_app/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class CollegeCard extends StatelessWidget {
@@ -137,7 +138,13 @@ class CollegeCard extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(7),
                                 ),
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) {
+                                        return DetailScreen();
+                                      },
+                                    ));
+                                  },
                                   child: const Text(
                                     'Apply Now',
                                     style: TextStyle(fontSize: 14),

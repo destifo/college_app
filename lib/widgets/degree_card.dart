@@ -14,16 +14,16 @@ class DegreeCard extends StatelessWidget {
       : super(key: key);
 
   void _navigateToNextScreen(BuildContext context) {
-    navKey.currentState!.push(
-      MaterialPageRoute(
-        builder: (context) => CollegesBody(navKey),
-      ),
-    );
-    // Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => CollegesBody(navKey),
-    //     ));
+    // navKey.currentState!.push(
+    //   MaterialPageRoute(
+    //     builder: (context) => CollegesBody(navKey),
+    //   ),
+    // );
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CollegesBody(navKey),
+        ));
   }
 
   @override

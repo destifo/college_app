@@ -47,14 +47,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Navigator(
-          key: _navKey,
-          onGenerateRoute: (_) => MaterialPageRoute(
-            builder: (_) => TabBarView(
-              controller: tabController,
-              children: _buildScreens(_navKey),
-            ),
-          ),
+        body: TabBarView(
+          controller: tabController,
+          children: _buildScreens(_navKey),
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
