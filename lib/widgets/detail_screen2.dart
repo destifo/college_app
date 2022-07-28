@@ -1,6 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:college_app/widgets/bedIcon.dart';
 import 'package:college_app/widgets/circle_image.dart';
 import 'package:college_app/widgets/college_card2.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widgets/tab_bar_item.dart';
 
@@ -20,6 +23,16 @@ class _DetailScreenState2 extends State<DetailScreen2>
     tabController = TabController(length: 4, vsync: this);
     super.initState();
   }
+
+  int _activeIndex = 0;
+
+  List<ImageProvider> images = const [
+    AssetImage('assets/images/bed1.jpg'),
+    AssetImage('assets/images/bed2.jpg'),
+    AssetImage('assets/images/bed3.jpg'),
+    AssetImage('assets/images/bed4.jpg'),
+    AssetImage('assets/images/bed5.jpg'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +59,18 @@ class _DetailScreenState2 extends State<DetailScreen2>
             ),
           ),
         ],
+      );
+    }
+
+    Widget buildIndicator() {
+      return AnimatedSmoothIndicator(
+        activeIndex: _activeIndex,
+        count: images.length,
+        effect: SlideEffect(
+          dotHeight: 12,
+          dotWidth: 12,
+          activeDotColor: Colors.black,
+        ),
       );
     }
 
@@ -118,16 +143,100 @@ class _DetailScreenState2 extends State<DetailScreen2>
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                 ),
-              )
+                child: Center(child: const Text('+12')),
+              ),
             ],
+          ),
+          Card(
+            color: Colors.grey.shade200,
+            child: Container(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Arun Sai',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        )),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    const Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec sed lorem nunc varius rutrum eget dolor, quis. Nulla sit magna suscipit tellus malesuada in facilisis a.',
+                      style: TextStyle(color: Colors.grey, letterSpacing: 0.2),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Container(
+                      height: 30,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return index != 4
+                              ? Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                )
+                              : Icon(Icons.star_outline);
+                        },
+                        itemCount: 5,
+                      ),
+                    ),
+                  ]),
+            ),
+          ),
+          SizedBox(
+            height: 40,
           )
         ],
         [
-          Center(
-              child: Text(
-            "2nd Screen",
-            style: TextStyle(color: Colors.black),
-          ))
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            BedIcon(true),
+            BedIcon(false),
+            BedIcon(false),
+            BedIcon(false),
+          ]),
+          const SizedBox(
+            height: 15,
+          ),
+          Column(
+            children: [
+              CarouselSlider.builder(
+                itemCount: images.length,
+                itemBuilder: (context, index, realIndex) {
+                  return Container(
+                    // width: 164,
+                    margin: const EdgeInsets.symmetric(horizontal: 9),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            fit: BoxFit.cover, image: images[index])),
+                  );
+                },
+                options: CarouselOptions(
+                  initialPage: 1,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _activeIndex = index;
+                    });
+                  },
+                  viewportFraction: 0.5,
+                  // pageSnapping: false,
+                  // enableInfiniteScroll: false,
+                  // enlargeCenterPage: true,
+                  disableCenter: true,
+                  height: 127,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              buildIndicator(),
+            ],
+          )
         ],
         [
           Center(
@@ -179,7 +288,7 @@ class _DetailScreenState2 extends State<DetailScreen2>
 
     return Scaffold(
       body: NestedScrollView(
-        floatHeaderSlivers: true,
+        // floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           appBar,
           SliverToBoxAdapter(

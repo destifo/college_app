@@ -74,7 +74,7 @@ class OptionCard extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 0.55,
+                width: MediaQuery.of(context).size.width * 0.65,
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,9 +83,12 @@ class OptionCard extends StatelessWidget {
                       title,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       body,
-                      style: const TextStyle(wordSpacing: 1.2),
+                      style: const TextStyle(wordSpacing: 1.2, fontSize: 14),
                     ),
                   ],
                 ),
