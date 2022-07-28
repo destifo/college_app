@@ -5,7 +5,7 @@ class CircleImage extends StatelessWidget {
   const CircleImage({
     Key? key,
     this.imageProvider,
-    this.imageRadius = 20,
+    this.imageRadius = 35,
   }) : super(key: key);
 // 2
   final double imageRadius;
@@ -18,6 +18,7 @@ class CircleImage extends StatelessWidget {
       radius: imageRadius,
 // 4
       child: CircleAvatar(
+      
         radius: imageRadius - 5,
         backgroundImage: imageProvider,
       ),

@@ -25,8 +25,7 @@ class CollegesBody extends StatelessWidget {
                 child: SearchBar2(),
               ),
               Container(
-                height:
-                    (mediaQuery.size.height - mediaQuery.padding.top) * 0.65,
+                height: (mediaQuery.size.height - mediaQuery.padding.top) * 0.8,
                 child: Column(
                   children: [
                     Container(
@@ -46,7 +45,7 @@ class CollegesBody extends StatelessWidget {
                     Container(
                       height:
                           (mediaQuery.size.height - mediaQuery.padding.top) *
-                              0.55,
+                              0.65,
                       child: ListView(
                         children: const [
                           CollegeCard(

@@ -1,4 +1,5 @@
 import 'package:college_app/screens/detail_screen.dart';
+import 'package:college_app/widgets/detail_screen2.dart';
 import 'package:flutter/material.dart';
 
 class CollegeCard extends StatelessWidget {
@@ -23,7 +24,10 @@ class CollegeCard extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.18,
               padding: const EdgeInsets.all(9),
               decoration: BoxDecoration(
+                color: Colors.black,
                 image: DecorationImage(
+                  colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.8), BlendMode.dstATop),
                   image: image,
                   fit: BoxFit.cover,
                 ),
@@ -105,9 +109,11 @@ class CollegeCard extends StatelessWidget {
                         Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
-                                padding: const EdgeInsets.all(5),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 5, horizontal: 8),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   color: Colors.green,
@@ -141,7 +147,7 @@ class CollegeCard extends StatelessWidget {
                                   onTap: () {
                                     Navigator.push(context, MaterialPageRoute(
                                       builder: (context) {
-                                        return DetailScreen();
+                                        return DetailScreen2();
                                       },
                                     ));
                                   },
