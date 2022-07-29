@@ -188,9 +188,9 @@ class _DetailScreenState2 extends State<DetailScreen2>
                   ]),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
-          )
+          ),
         ],
         [
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -359,7 +359,10 @@ class _DetailScreenState2 extends State<DetailScreen2>
                 ],
               ),
             ],
-          )
+          ),
+          const SizedBox(
+            height: 40,
+          ),
         ],
         [
           Center(
