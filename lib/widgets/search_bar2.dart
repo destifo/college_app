@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'my_search_delegate.dart';
+
 class SearchBar2 extends StatelessWidget {
   const SearchBar2({Key? key}) : super(key: key);
 
@@ -27,27 +29,31 @@ class SearchBar2 extends StatelessWidget {
                 children: [
                   Container(
                     child: Expanded(
-                      child: Container(
-                        height: 45,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const [
-                              Icon(
-                                Icons.search,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                'Search for colleges, schools....',
-                                style: TextStyle(
+                      child: GestureDetector(
+                        onTap: () => showSearch(
+                            context: context, delegate: MySearchDelegate()),
+                        child: Container(
+                          height: 45,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: const [
+                                Icon(
+                                  Icons.search,
                                   color: Colors.grey,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w200,
                                 ),
-                              )
-                            ]),
+                                Text(
+                                  'Search for colleges, schools....',
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w200,
+                                  ),
+                                )
+                              ]),
+                        ),
                       ),
                     ),
                   ),

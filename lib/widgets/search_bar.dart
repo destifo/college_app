@@ -1,3 +1,4 @@
+import 'package:college_app/widgets/my_search_delegate.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
@@ -49,53 +50,58 @@ class SearchBar extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                children: [
-                  Container(
-                    child: Expanded(
-                      child: Container(
-                        height: 45,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const [
-                              Icon(
-                                Icons.search,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                'Search for colleges, schools....',
-                                style: TextStyle(
+            GestureDetector(
+              onTap: () {
+                showSearch(context: context, delegate: MySearchDelegate());
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Expanded(
+                        child: Container(
+                          height: 45,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: const [
+                                Icon(
+                                  Icons.search,
                                   color: Colors.grey,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w200,
                                 ),
-                              )
-                            ]),
+                                Text(
+                                  'Search for colleges, schools....',
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w200,
+                                  ),
+                                )
+                              ]),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    height: 45,
-                    width: 45,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.keyboard_voice,
-                          color: Theme.of(context).primaryColor,
-                        )),
-                  ),
-                ],
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Container(
+                      height: 45,
+                      width: 45,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15)),
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.keyboard_voice,
+                            color: Theme.of(context).primaryColor,
+                          )),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
